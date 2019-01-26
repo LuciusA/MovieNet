@@ -12,17 +12,17 @@ namespace MovieNetWPF
     {
         public MainViewModel()
         {
-            Name = "Hello MVVM !";
+            //Name = "Hello MVVM !";
             MyCommand = new RelayCommand(MyCommandExecute);
         }
 
-        private string _name;
-        public string Name
+        private string _username;
+        public string Username
         {
-            get => _name;
+            get => _username;
             set
             {
-                _name = value;
+                _username = value;
                 RaisePropertyChanged();
             }
         }
@@ -31,7 +31,8 @@ namespace MovieNetWPF
 
         void MyCommandExecute()
         {
-            Name = "Hello Click!";
+            Console.WriteLine("Username:" + _username);
+            Console.WriteLine("Username:" + Username);
         }
     }
 }

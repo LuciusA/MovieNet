@@ -8,10 +8,9 @@
         DataContext="{Binding Source={StaticResource VMLocator}, Path=MainVM}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="Label1" Content="{Binding Username}" HorizontalAlignment="Left" Height="94" Margin="28,33,0,0" VerticalAlignment="Top" Width="270" Foreground="Black" Background="White" BorderBrush="Black" OpacityMask="Black"/>
         <Button x:Name="Button1" Command="{Binding MyCommand}" Content="Click here" HorizontalAlignment="Left" Height="38" Margin="298,258,0,0" VerticalAlignment="Top" Width="206" Background="#FF21D305" Foreground="#FFF7F5F5"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" Height="32" Margin="298,146,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="206"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="32" Margin="298,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="Username" Text="{Binding Username}" HorizontalAlignment="Left" Height="32" Margin="298,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+        <TextBox x:Name="Password" Text="{Binding Password}" HorizontalAlignment="Left" Height="32" Margin="298,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
 
     </Grid>
 

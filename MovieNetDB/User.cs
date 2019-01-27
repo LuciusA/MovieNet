@@ -17,7 +17,7 @@ namespace MovieNetDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.UsersOpinion = new HashSet<UsersOpinion>();
+            //this.UsersOpinion = new HashSet<UsersOpinion>();
         }
     
         public int Id { get; set; }

@@ -70,11 +70,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="RegisterUser.xaml.cs">
-      <DependentUpon>RegisterUser.xaml</DependentUpon>
+    <Compile Include="Model\RegisterUser.cs" />
+    <Compile Include="MyICommand.cs" />
+    <Compile Include="Views\RegisterUserView.xaml.cs">
+      <DependentUpon>RegisterUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\RegisterUserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="VMLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -89,7 +93,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegisterUser.xaml">
+    <Page Include="Views\RegisterUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,5 +125,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

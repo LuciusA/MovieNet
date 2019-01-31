@@ -29,5 +29,5 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\MovieNetWPF.csp
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\MovieNetWPF.csproj.CopyComplete
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\MovieNetWPF.exe
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\MovieNetWPF.pdb
-C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\RegisterUser.g.cs
-C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\RegisterUser.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\Views\RegisterUserView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetWPF\obj\Debug\Views\RegisterUserView.baml

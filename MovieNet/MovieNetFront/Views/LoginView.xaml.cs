@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MovieNetWPF
+namespace MovieNetFront.Views
 {
     /// <summary>
-    /// Logique d'interaction pour RegisterUser.xaml
+    /// Logique d'interaction pour LoginView.xaml
     /// </summary>
-    public partial class RegisterUser : Window
+    public partial class LoginView : UserControl
     {
-        public RegisterUser()
+        public LoginView()
         {
             InitializeComponent();
         }

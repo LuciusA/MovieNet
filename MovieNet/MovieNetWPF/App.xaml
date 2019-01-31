@@ -8,7 +8,7 @@
   <Application.Resources>
     <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MovieNetWPF.ViewModel" />
-            <local:VMLocator x:Key="VMLocator"/>
+            <!--<local:VMLocator x:Key="VMLocator"/>-->
         </ResourceDictionary>
   </Application.Resources>
 </Application>

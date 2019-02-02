@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNetWPF", "MovieNetWPF\MovieNetWPF.csproj", "{B25FE338-FBA4-4827-87BC-65CCE41F3F43}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNetFront", "MovieNetFront\MovieNetFront.csproj", "{0C21DE50-BC84-4712-B5C6-DCA364028135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieNetDB", "MovieNetDB\MovieNetDB.csproj", "{38930AF7-5786-47C4-9249-06DC2DF68866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B25FE338-FBA4-4827-87BC-65CCE41F3F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B25FE338-FBA4-4827-87BC-65CCE41F3F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B25FE338-FBA4-4827-87BC-65CCE41F3F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B25FE338-FBA4-4827-87BC-65CCE41F3F43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C21DE50-BC84-4712-B5C6-DCA364028135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C21DE50-BC84-4712-B5C6-DCA364028135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C21DE50-BC84-4712-B5C6-DCA364028135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C21DE50-BC84-4712-B5C6-DCA364028135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38930AF7-5786-47C4-9249-06DC2DF68866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38930AF7-5786-47C4-9249-06DC2DF68866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38930AF7-5786-47C4-9249-06DC2DF68866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38930AF7-5786-47C4-9249-06DC2DF68866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

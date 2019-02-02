@@ -5,8 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieNetFront.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Login View"></TextBlock>
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FFA1A1A1">
+        <Label Content="Connexion à votre espace personnel" Margin="288,26,282,384"/>
+
+        <Button Content = "Back" 
+            Command = "{Binding NavCommand}"
+            CommandParameter = "back" Margin="10,10,654,407" />
+
+        <Label Content="Email" Margin="158,193,529,223"/>
+        <TextBox x:Name="Email" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Height="35" Margin="276,245,282,0"/>
+
+        <Label Content="Mot de passe" Margin="156,245,560,170"/>
+        <TextBox x:Name="Password" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Height="35" Margin="276,192,282,0"/>
+
+        <Button x:Name="LoginBtn" Command="{Binding MyCommand}" Content="Valider" Margin="276,380,282,30"/>
     </Grid>
 </UserControl>

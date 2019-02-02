@@ -17,3 +17,13 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CoreCompileInputs.cache
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.exe
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.pdb
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csprojAssemblyReference.cache
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\Database.mdf
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\Database_log.ldf
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\MovieNetDB.exe
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.dll
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\MovieNetDB.pdb
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\MovieNetDB.exe.config
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.xml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CopyComplete

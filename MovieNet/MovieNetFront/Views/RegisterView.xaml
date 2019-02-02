@@ -5,8 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieNetFront.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Register View"></TextBlock>
+             d:DesignHeight="350" d:DesignWidth="700">
+
+    <Grid Background="#FFA1A1A1">
+        <Label Content="Création de votre espace personnel" Margin="238,25,251,281"/>
+
+        <!--<Button Content = "Back" 
+            Command = "{Binding NavCommand}"
+            CommandParameter = "back" Margin="10,10,654,407" />-->
+
+        <Label Content="Login" Margin="204,105,429,217"/>
+        <TextBox x:Name="Login" TextWrapping="Wrap" Text="{Binding Username}" VerticalAlignment="Top" Height="35" Margin="276,98,282,0"/>
+
+        <Label Content="Mot de passe" Margin="171,158,429,157"/>
+        <TextBox x:Name="Password" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Height="35" Margin="276,158,282,0"/>
+
+        <Label Content="Confirmation du mot de passe" Margin="90,217,429,98"/>
+        <TextBox x:Name="ConfirmPassword" TextWrapping="Wrap" Text="{Binding ConfirmPassword}" VerticalAlignment="Top" Height="35" Margin="276,217,282,0"/>
+
+        <Button x:Name="CreateAccountBtn" Command="{Binding LoginCommand}" CommandParameter = "{Binding Username}" Content="Valider" Margin="276,278,282,37"/>
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using MovieNetFront.Views;
 using MovieNetFront.ViewModel;
+using MovieNetDB;
 
 namespace MovieNetFront
 {
@@ -42,8 +43,11 @@ namespace MovieNetFront
                 case "login":
                     CurrentViewModel = loginViewModel;
                     break;
+                case "back":
+                    CurrentViewModel = CurrentViewModel;
+                    break;
                 default:
-                    CurrentViewModel = loginViewModel;
+                    CurrentViewModel = CurrentViewModel;
                     break;
             }
         }

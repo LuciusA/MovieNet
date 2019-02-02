@@ -23,7 +23,22 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
+        <TextBlock Text="MOVIE .NET" Margin="366,115,346.333,259.667" RenderTransformOrigin="-0.037,0.386"></TextBlock>
+
+        <Button Content = "Login" 
+            Command = "{Binding NavCommand}"
+            CommandParameter = "login" Margin="318,195,318.333,188.667" />
+
+        <Button Content = "Register" 
+            Command = "{Binding NavCommand}" 
+            CommandParameter = "register" Margin="318,260,318.333,123.667"  />
+
+        <Grid x:Name = "MainContent">
+            <ContentControl Content = "{Binding CurrentViewModel}" Margin="0,1,-0.667,-0.333" />
+        </Grid>
+        
+        
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height = "Auto" />
             <RowDefinition Height = "*" />
         </Grid.RowDefinitions>
@@ -48,7 +63,7 @@
 
         <Grid x:Name = "MainContent" Grid.Row = "1">
             <ContentControl Content = "{Binding CurrentViewModel}" />
-        </Grid>
+        </Grid>-->
 
     </Grid>
 </Window>

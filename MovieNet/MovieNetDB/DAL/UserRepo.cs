@@ -8,9 +8,9 @@ namespace MovieNetDB.DAL
 {
     public class UserRepo : IUserRepo
     {
-        private IDAOUser dao;
+        private DAOUser dao;
 
-        public UserRepo(IDAOUser daoUser)
+        public UserRepo(DAOUser daoUser)
         {
             dao = daoUser;
         }

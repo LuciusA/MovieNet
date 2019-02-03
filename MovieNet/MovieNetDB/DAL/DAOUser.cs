@@ -28,7 +28,9 @@ namespace MovieNetDB.DAL
 
         public void CreateUser(User user)
         {
+            Console.WriteLine("userDAO");
             context.UserSet.Add(user);
+            context.SaveChanges();
         }
 
         public void DeleteUser(int userId)

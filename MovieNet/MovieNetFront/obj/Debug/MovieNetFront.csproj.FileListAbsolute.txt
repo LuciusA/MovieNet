@@ -27,3 +27,5 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\MovieNetDB.ex
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.xml
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CopyComplete
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.xml

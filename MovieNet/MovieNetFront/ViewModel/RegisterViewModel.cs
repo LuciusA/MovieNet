@@ -52,9 +52,8 @@ namespace MovieNetFront.ViewModel
             Console.WriteLine("Login:" + _username);
             Console.WriteLine("Password:" + _password);
             Console.WriteLine("ConfirmPassword:" + _confirmPassword);
-
-            var userFacade = new UserFacade();
-            userFacade.CreateUser(_username, _password);
+            ServiceFacade ServiceFacade = ServiceFacade.Instance;
+            ServiceFacade.CreateUser(_username, _password);
         }
     }
 }

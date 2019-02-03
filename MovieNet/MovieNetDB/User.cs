@@ -21,21 +21,5 @@ namespace MovieNetDB
         public User()
         {
         }
-
-        public String getLogin()
-        {
-            return Login;
-        }
-
-        public void setLogin(String login)
-        {
-            this.Login = login;
-        }
-
-        public void setPassword(String password)
-        {
-            this.Password = password;
-        }
-
     }
 }

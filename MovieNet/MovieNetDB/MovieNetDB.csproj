@@ -69,7 +69,7 @@
   <ItemGroup>
     <Compile Include="DAL\DAOUser.cs" />
     <Compile Include="DAL\IDAOUser.cs" />
-    <Compile Include="DAL\UserFacade.cs" />
+    <Compile Include="DAL\ServiceFacade.cs" />
     <Compile Include="DAL\UserRepo.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>

@@ -4,21 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieNetFront.Views"
+             xmlns:viewModels="clr-namespace:MovieNetFront.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FFA1A1A1">
-        <Label Content="Connexion à votre espace personnel" Margin="288,26,282,384"/>
 
-        <Button Content = "Back" 
-            Command = "{Binding NavCommand}"
-            CommandParameter = "back" Margin="10,10,654,407" />
+    <!--<UserControl.Resources>
+        <DataTemplate DataType = "{x:Type viewModels:LoginViewModel}">
+            <local:LoginView/>
+        </DataTemplate>
+    </UserControl.Resources>-->
 
-        <Label Content="Email" Margin="158,193,529,223"/>
-        <TextBox x:Name="Email" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Height="35" Margin="276,245,282,0"/>
+    <Grid>
+        <Border >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF066868"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Margin="20">
+                <Label Content="Login" Foreground="White" FontSize="36" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" Height="63" Margin="326,0,296,0" Width="138"/>
+                <Separator Margin="270,2" Background="White" Height="25"/>
+                <Label Content="Login" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="Login" Text="{Binding Username}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
+                <Label Content="Password" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
+                <TextBox x:Name="Password" Text="{Binding Password}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
+                <Separator Margin="234,2,232,2" Height="22" Background="{x:Null}"/>
+                <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding LoginCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
+                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="back" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
+            </StackPanel>
+        </Border>
 
-        <Label Content="Mot de passe" Margin="156,245,560,170"/>
-        <TextBox x:Name="Password" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Height="35" Margin="276,192,282,0"/>
-
-        <Button x:Name="LoginBtn" Command="{Binding MyCommand}" Content="Valider" Margin="276,380,282,30"/>
+        <Grid x:Name = "LoginContent">
+            <ContentControl Content = "{Binding CurrentViewModel}"/>
+        </Grid>
     </Grid>
 </UserControl>

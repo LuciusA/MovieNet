@@ -13,57 +13,29 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType = "{x:Type viewModels:LoginViewModel}">
-            <views:LoginView/>
-        </DataTemplate>
-
-        <DataTemplate DataType = "{x:Type viewModels:RegisterViewModel}">
-            <views:RegisterView/>
+        <DataTemplate DataType = "{x:Type viewModels:HomeViewModel}">
+            <views:HomeView/>
         </DataTemplate>
     </Window.Resources>
 
-    <Grid>
-        <TextBlock Text="MOVIE .NET" Margin="366,115,346.333,259.667" RenderTransformOrigin="-0.037,0.386"></TextBlock>
+    <!--<Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF066868"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock Text="MOVIE .NET" Margin="293,90,292.333,276.667" RenderTransformOrigin="-0.037,0.386" Foreground="White" FontFamily="Microsoft YaHei Light" FontSize="36" FontWeight="Bold"/>
 
         <Button Content = "Login" 
             Command = "{Binding NavCommand}"
-            CommandParameter = "login" Margin="318,195,318.333,188.667" />
+            CommandParameter = "login" Margin="318,195,318.333,188.667" BorderBrush="#FF929292" Foreground="Black" Background="White" FontFamily="Microsoft YaHei Light" FontSize="16" />
 
         <Button Content = "Register" 
             Command = "{Binding NavCommand}" 
-            CommandParameter = "register" Margin="318,260,318.333,123.667"  />
+            CommandParameter = "register" Margin="318,260,318.333,123.667" BorderBrush="#FF929292" Foreground="Black" Background="White" FontFamily="Microsoft YaHei Light" FontSize="16" />-->
 
-        <Grid x:Name = "MainContent">
-            <ContentControl Content = "{Binding CurrentViewModel}" Margin="0,1,-0.667,-0.333" />
-        </Grid>
-        
-        
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "*" />
-        </Grid.RowDefinitions>
-
-        <Grid x:Name = "NavBar">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
-            </Grid.ColumnDefinitions>
-
-            <Button Content = "Login" 
-            Command = "{Binding NavCommand}"
-            CommandParameter = "login" 
-            Grid.Column = "0" />
-
-            <Button Content = "Register" 
-            Command = "{Binding NavCommand}" 
-            CommandParameter = "register" 
-            Grid.Column = "2" />
-        </Grid>
-
-        <Grid x:Name = "MainContent" Grid.Row = "1">
-            <ContentControl Content = "{Binding CurrentViewModel}" />
-        </Grid>-->
-
+    <Grid x:Name = "MainContent">
+        <ContentControl Content = "{Binding CurrentViewModel}" />
     </Grid>
 </Window>

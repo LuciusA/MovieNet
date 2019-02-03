@@ -12,10 +12,41 @@ namespace MovieNetFront.ViewModel
     {
         public RegisterViewModel()
         {
-            LoginCommand = new MyICommand<string>(Login);
+            NavCommand = new MyICommand<string>(OnNav);
+            RegisterCommand = new MyICommand<string>(Register);
         }
 
-        public MyICommand<string> LoginCommand { get; private set; }
+        ServiceFacade ServiceFacade = ServiceFacade.Instance;
+
+        LoginViewModel loginViewModel = new LoginViewModel();
+
+        public MyICommand<string> RegisterCommand { get; private set; }
+
+        private BindableBase _CurrentViewModel;
+
+        public BindableBase CurrentViewModel
+        {
+            get { return _CurrentViewModel; }
+            set { SetProperty(ref _CurrentViewModel, value); }
+        }
+
+        public MyICommand<string> NavCommand { get; set; }
+
+        private void OnNav(string destination)
+        {
+            HomeViewModel homeViewModel = new HomeViewModel();
+            Console.WriteLine("entrée");
+            switch (destination)
+            {
+                case "back":
+                    Console.WriteLine("ok");
+                    CurrentViewModel = homeViewModel;
+                    break;
+                default:
+                    break;
+            }
+            Console.WriteLine("sortie");
+        }
 
         private string _username;
         public string Username
@@ -47,12 +78,11 @@ namespace MovieNetFront.ViewModel
             }
         }
 
-        private void Login(string obj)
+        private void Register(string obj)
         {
             Console.WriteLine("Login:" + _username);
             Console.WriteLine("Password:" + _password);
             Console.WriteLine("ConfirmPassword:" + _confirmPassword);
-            ServiceFacade ServiceFacade = ServiceFacade.Instance;
             ServiceFacade.CreateUser(_username, _password);
         }
     }

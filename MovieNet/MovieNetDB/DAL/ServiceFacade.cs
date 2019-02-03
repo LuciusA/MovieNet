@@ -29,11 +29,6 @@ namespace MovieNetDB.DAL
 
         public void CreateUser(string login, string password)
         {
-            /*if (daoUser.GetUserById(userToCreate.Username) != null)
-            {
-                Console.WriteLine("Error: username " + userToCreate.Username + " already taken.");
-                return null;
-            }*/
             Console.WriteLine("Service Facade");
             User user = new User
             {

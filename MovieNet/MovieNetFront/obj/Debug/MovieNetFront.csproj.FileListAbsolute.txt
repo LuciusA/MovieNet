@@ -29,3 +29,5 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\fr\EntityFram
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CopyComplete
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\HomeView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\HomeView.baml

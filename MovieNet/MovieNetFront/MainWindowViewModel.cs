@@ -15,12 +15,15 @@ namespace MovieNetFront
 
         public MainWindowViewModel()
         {
-            NavCommand = new MyICommand<string>(OnNav);
+            CurrentViewModel = homeViewModel;
+            //NavCommand = new MyICommand<string>(OnNav);
         }
 
-        private LoginViewModel loginViewModel = new LoginViewModel();
+        private HomeViewModel homeViewModel = new HomeViewModel();
 
-        private RegisterViewModel registerViewModel = new RegisterViewModel();
+        /*private LoginViewModel loginViewModel = new LoginViewModel();
+
+        private RegisterViewModel registerViewModel = new RegisterViewModel();*/
 
         private BindableBase _CurrentViewModel;
 
@@ -30,10 +33,11 @@ namespace MovieNetFront
             set { SetProperty(ref _CurrentViewModel, value); }
         }
 
-        public MyICommand<string> NavCommand { get; private set; }
+        /*public MyICommand<string> NavCommand { get; set; }
 
         private void OnNav(string destination)
         {
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
 
             switch (destination)
             {
@@ -44,12 +48,12 @@ namespace MovieNetFront
                     CurrentViewModel = loginViewModel;
                     break;
                 case "back":
-                    CurrentViewModel = CurrentViewModel;
+                    CurrentViewModel = mainWindowViewModel;
                     break;
                 default:
-                    CurrentViewModel = CurrentViewModel;
+                    CurrentViewModel = mainWindowViewModel;
                     break;
             }
-        }
+        }*/
     }
 }

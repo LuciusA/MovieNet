@@ -9,6 +9,8 @@ namespace MovieNetDB.DAL
     public interface IDAOUser
     {
         User GetUserById(int id);
+        User GetUserByLogin(string login);
+        User LoginUser(string login, string password);
         List<User> GetUsers();
         void CreateUser(User user);
         void UpdateUser(User user);

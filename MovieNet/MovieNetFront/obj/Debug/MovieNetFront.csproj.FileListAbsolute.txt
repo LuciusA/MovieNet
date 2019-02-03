@@ -27,7 +27,9 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\MovieNetDB.ex
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.xml
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CopyComplete
-C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\HomeView.g.cs
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\HomeView.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\AddMovieView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserHomeView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\AddMovieView.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserHomeView.baml

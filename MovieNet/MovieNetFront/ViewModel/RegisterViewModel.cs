@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MovieNetFront.ViewModel
 {
@@ -17,8 +18,6 @@ namespace MovieNetFront.ViewModel
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
-
-        LoginViewModel loginViewModel = new LoginViewModel();
 
         public MyICommand<string> RegisterCommand { get; private set; }
 
@@ -35,17 +34,14 @@ namespace MovieNetFront.ViewModel
         private void OnNav(string destination)
         {
             HomeViewModel homeViewModel = new HomeViewModel();
-            Console.WriteLine("entrée");
             switch (destination)
             {
-                case "back":
-                    Console.WriteLine("ok");
+                case "home":
                     CurrentViewModel = homeViewModel;
                     break;
                 default:
                     break;
             }
-            Console.WriteLine("sortie");
         }
 
         private string _username;
@@ -83,7 +79,16 @@ namespace MovieNetFront.ViewModel
             Console.WriteLine("Login:" + _username);
             Console.WriteLine("Password:" + _password);
             Console.WriteLine("ConfirmPassword:" + _confirmPassword);
-            ServiceFacade.CreateUser(_username, _password);
+       
+            if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true && string.IsNullOrEmpty(_confirmPassword) != true)
+            {
+                if (_password == _confirmPassword)
+                    ServiceFacade.CreateUser(_username, _password);
+                else
+                    MessageBox.Show("Error your passwords don't match", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

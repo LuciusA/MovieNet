@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="MovieNetFront.Views.AddMovieView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieNetFront.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF066868"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel Margin="20">
+                <Label Content="Add a movie" Foreground="White" FontSize="36" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" Height="63" Margin="270,0" Width="220"/>
+                <Separator Margin="270,2" Background="White" Height="25"/>
+                <Label Content="Title" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="Title" Text="{Binding Title}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
+                <Label Content="Genre" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="Genre" ItemsSource="{Binding Genres}" SelectedItem="{Binding SelectedGenre}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194" MaxDropDownHeight="150" BorderBrush="White" />
+                <Label Content="Summary" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
+                <TextBox x:Name="Summary" Text="{Binding Summary}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="284,0,282,0" Width="194" Height="55"/>
+                <Label Content="Rating" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
+                <DockPanel VerticalAlignment="Center" Margin="284,10,282,10">
+                    <TextBox Text="{Binding ElementName=Rating, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider x:Name="Rating" Maximum="10" TickPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" />
+                </DockPanel>
+                <Separator Margin="234,2,232,2" Height="22" Background="{x:Null}"/>
+                <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding RegisterCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
+                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="home" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
+            </StackPanel>
+        </Border>
+
+        <Grid x:Name = "RegisterContent">
+            <ContentControl Content = "{Binding CurrentViewModel}"/>
+        </Grid>
+    </Grid>
+</UserControl>

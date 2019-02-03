@@ -26,11 +26,20 @@ namespace MovieNetDB.DAL
             return context.UserSet.Find(id);
         }
 
+        public User GetUserByLogin(string login)
+        {
+            return context.UserSet.FirstOrDefault((u => u.Login == login));
+        }
+
         public void CreateUser(User user)
         {
-            Console.WriteLine("userDAO");
             context.UserSet.Add(user);
             context.SaveChanges();
+        }
+
+        public User LoginUser(string login, string password) 
+        {
+            return context.UserSet.FirstOrDefault(u => u.Login == login && u.Password == password);
         }
 
         public void DeleteUser(int userId)

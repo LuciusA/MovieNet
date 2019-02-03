@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\App.xaml
-4389783111
+6-19472126
 
-2159468750
+2715817707
 14-1289802350
-Views\HomeView.xaml;MainWindow.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;
+Views\AddMovieView.xaml;Views\HomeView.xaml;MainWindow.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;Views\UserHomeView.xaml;
 
 True
 

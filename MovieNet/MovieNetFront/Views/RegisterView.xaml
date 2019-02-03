@@ -33,7 +33,7 @@
                 <TextBox x:Name="ConfirmPassword" Text="{Binding ConfirmPassword}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
                 <Separator Margin="234,2,232,2" Height="22" Background="{x:Null}"/>
                 <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding RegisterCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
-                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="back" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
+                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="home" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
             </StackPanel>
         </Border>
 

@@ -51,7 +51,7 @@ namespace MovieNetDB.DAL
             }
         }
 
-        public void LoginUser(string login, string password)
+        public User LoginUser(string login, string password)
         {
             User user = daoUser.LoginUser(login, password);
 
@@ -63,6 +63,7 @@ namespace MovieNetDB.DAL
             {
                 MessageBox.Show("Welcome !", "Information correct", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+            return user;
         }
 
         public void CreateMovie(string title, string genre, string summary, double rating, int userId)

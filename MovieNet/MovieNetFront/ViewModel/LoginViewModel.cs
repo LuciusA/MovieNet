@@ -1,4 +1,5 @@
-﻿using MovieNetDB.DAL;
+﻿using MovieNetDB;
+using MovieNetDB.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,7 @@ namespace MovieNetFront.ViewModel
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
-
-        AddMovieViewModel addMovieViewModel = new AddMovieViewModel();
-
+        
         public MyICommand<string> LoginCommand { get; private set; }
 
         private BindableBase _CurrentViewModel;
@@ -35,10 +34,14 @@ namespace MovieNetFront.ViewModel
         private void OnNav(string destination)
         {
             HomeViewModel homeViewModel = new HomeViewModel();
+            UserHomeViewModel userHomeViewModel = new UserHomeViewModel();
             switch (destination)
             {
                 case "home":
                     CurrentViewModel = homeViewModel;
+                    break;
+                case "userHome":
+                    CurrentViewModel = userHomeViewModel;
                     break;
                 default:
                     break;
@@ -72,8 +75,11 @@ namespace MovieNetFront.ViewModel
 
             if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true)
             {
-                ServiceFacade.LoginUser(_username, _password);
-                CurrentViewModel = addMovieViewModel;
+                User user = ServiceFacade.LoginUser(_username, _password);
+                if (user != null)
+                {
+                    OnNav("userHome");
+                }
             }
             else
                 MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);

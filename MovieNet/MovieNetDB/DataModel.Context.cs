@@ -27,5 +27,10 @@ namespace MovieNetDB
     
         public virtual DbSet<User> UserSet { get; set; }
         public virtual DbSet<Movie> MovieSet { get; set; }
+
+        private void FixEfProviderServicesProblem()
+        {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+        }
     }
 }

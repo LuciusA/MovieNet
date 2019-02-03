@@ -51,5 +51,8 @@
             </ListView>
         </StackPanel>
 
+        <Grid x:Name = "UserHomeContent">
+            <ContentControl Content = "{Binding CurrentViewModel}"/>
+        </Grid>
     </Grid>
 </UserControl>

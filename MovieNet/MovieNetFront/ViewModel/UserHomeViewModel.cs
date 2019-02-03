@@ -10,10 +10,11 @@ namespace MovieNetFront.ViewModel
     {
         public UserHomeViewModel()
         {
+            addMovieViewModel = new AddMovieViewModel();
             NavCommand = new MyICommand<string>(OnNav);
         }
 
-        private AddMovieViewModel addMovieViewModel = new AddMovieViewModel();
+        private AddMovieViewModel addMovieViewModel;
 
         private BindableBase _CurrentViewModel;
 

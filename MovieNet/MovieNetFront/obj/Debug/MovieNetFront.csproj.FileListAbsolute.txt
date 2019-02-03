@@ -33,3 +33,5 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\AddMovi
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserHomeView.g.cs
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\AddMovieView.baml
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserHomeView.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\bin\Debug\EntityFramework.SqlServer.xml

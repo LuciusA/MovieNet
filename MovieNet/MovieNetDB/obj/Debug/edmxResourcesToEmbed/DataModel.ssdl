@@ -3,9 +3,27 @@
   <EntityContainer Name="DataModelStoreContainer">
     <EntitySet Name="UserSet" EntityType="DataModel.Store.UserSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MovieSet" EntityType="DataModel.Store.MovieSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RatingSet" EntityType="DataModel.Store.RatingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentSet" EntityType="DataModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="UserMovie" Association="DataModel.Store.UserMovie">
       <End Role="User" EntitySet="UserSet" />
       <End Role="Movie" EntitySet="MovieSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserRating" Association="DataModel.Store.UserRating">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Rating" EntitySet="RatingSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserComment" Association="DataModel.Store.UserComment">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="MovieRating" Association="DataModel.Store.MovieRating">
+      <End Role="Movie" EntitySet="MovieSet" />
+      <End Role="Rating" EntitySet="RatingSet" />
+    </AssociationSet>
+    <AssociationSet Name="MovieComment" Association="DataModel.Store.MovieComment">
+      <End Role="Movie" EntitySet="MovieSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserSet">
@@ -24,9 +42,25 @@
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Genre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Summary" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Rating" Type="float" Nullable="false" />
-    <Property Name="User_id" Type="int" Nullable="false" />
     <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RatingSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rate" Type="float" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieComment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Movie_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UserMovie">
     <End Role="User" Type="DataModel.Store.UserSet" Multiplicity="1" />
@@ -37,6 +71,54 @@
       </Principal>
       <Dependent Role="Movie">
         <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRating">
+    <End Role="User" Type="DataModel.Store.UserSet" Multiplicity="1" />
+    <End Role="Rating" Type="DataModel.Store.RatingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserComment">
+    <End Role="User" Type="DataModel.Store.UserSet" Multiplicity="1" />
+    <End Role="Comment" Type="DataModel.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MovieRating">
+    <End Role="Movie" Type="DataModel.Store.MovieSet" Multiplicity="1" />
+    <End Role="Rating" Type="DataModel.Store.RatingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="Movie_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MovieComment">
+    <End Role="Movie" Type="DataModel.Store.MovieSet" Multiplicity="1" />
+    <End Role="Comment" Type="DataModel.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Movie_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

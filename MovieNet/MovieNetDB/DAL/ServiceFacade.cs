@@ -76,8 +76,7 @@ namespace MovieNetDB.DAL
                 {
                     Title = title,
                     Genre = genre,
-                    Summary = summary,
-                    User_id = userId
+                    Summary = summary
                 };
 
                 daoMovie.CreateMovie(movie);

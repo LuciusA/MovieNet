@@ -7,30 +7,84 @@
       <End Role="User" EntitySet="UserSet" />
       <End Role="Movie" EntitySet="MovieSet" />
     </AssociationSet>
+    <EntitySet Name="RatingSet" EntityType="DataModel.Rating" />
+    <EntitySet Name="CommentSet" EntityType="DataModel.Comment" />
+    <AssociationSet Name="UserRating" Association="DataModel.UserRating">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Rating" EntitySet="RatingSet" />
+    </AssociationSet>
+    <AssociationSet Name="UserComment" Association="DataModel.UserComment">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="MovieRating" Association="DataModel.MovieRating">
+      <End Role="Movie" EntitySet="MovieSet" />
+      <End Role="Rating" EntitySet="RatingSet" />
+    </AssociationSet>
+    <AssociationSet Name="MovieComment" Association="DataModel.MovieComment">
+      <End Role="Movie" EntitySet="MovieSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Login" Type="String" Nullable="false" />
-    <Property Name="Password" Type="String" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Movie" Relationship="DataModel.UserMovie" FromRole="User" ToRole="Movie" />
+    <NavigationProperty Name="Rating" Relationship="DataModel.UserRating" FromRole="User" ToRole="Rating" />
+    <NavigationProperty Name="Comment" Relationship="DataModel.UserComment" FromRole="User" ToRole="Comment" />
   </EntityType>
   <EntityType Name="Movie">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" />
-    <Property Name="Genre" Type="String" Nullable="false" />
-    <Property Name="Summary" Type="String" Nullable="false" />
-    <Property Name="Rating" Type="Double" Nullable="false" />
-    <Property Name="User_id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Summary" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="User" Relationship="DataModel.UserMovie" FromRole="Movie" ToRole="User" />
+    <NavigationProperty Name="Rating" Relationship="DataModel.MovieRating" FromRole="Movie" ToRole="Rating" />
+    <NavigationProperty Name="Comment" Relationship="DataModel.MovieComment" FromRole="Movie" ToRole="Comment" />
   </EntityType>
   <Association Name="UserMovie">
     <End Type="DataModel.User" Role="User" Multiplicity="1" />
     <End Type="DataModel.Movie" Role="Movie" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rate" Type="Double" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="DataModel.UserRating" FromRole="Rating" ToRole="User" />
+    <NavigationProperty Name="Movie" Relationship="DataModel.MovieRating" FromRole="Rating" ToRole="Movie" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MovieComment" Type="String" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="DataModel.UserComment" FromRole="Comment" ToRole="User" />
+    <NavigationProperty Name="Movie" Relationship="DataModel.MovieComment" FromRole="Comment" ToRole="Movie" />
+  </EntityType>
+  <Association Name="UserRating">
+    <End Type="DataModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataModel.Rating" Role="Rating" Multiplicity="*" />
+  </Association>
+  <Association Name="UserComment">
+    <End Type="DataModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataModel.Comment" Role="Comment" Multiplicity="*" />
+  </Association>
+  <Association Name="MovieRating">
+    <End Type="DataModel.Movie" Role="Movie" Multiplicity="1" />
+    <End Type="DataModel.Rating" Role="Rating" Multiplicity="*" />
+  </Association>
+  <Association Name="MovieComment">
+    <End Type="DataModel.Movie" Role="Movie" Multiplicity="1" />
+    <End Type="DataModel.Comment" Role="Comment" Multiplicity="*" />
   </Association>
 </Schema>

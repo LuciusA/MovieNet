@@ -5,9 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ac9c1be63bc044fc8ff2135fe21425cc" Name="Diagram1" >
-        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DataModel.Movie" Width="1.5" PointX="3.875" PointY="1.125" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.Movie" Width="1.5" PointX="5.5" PointY="3.125" />
         <AssociationConnector Association="DataModel.UserMovie" />
+        <EntityTypeShape EntityType="DataModel.Rating" Width="1.5" PointX="2.375" PointY="2.375" />
+        <EntityTypeShape EntityType="DataModel.Comment" Width="1.5" PointX="9" PointY="2.625" />
+        <AssociationConnector Association="DataModel.UserRating" />
+        <AssociationConnector Association="DataModel.UserComment" />
+        <AssociationConnector Association="DataModel.MovieRating" />
+        <AssociationConnector Association="DataModel.MovieComment" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieNetDB.DAL;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +13,39 @@ namespace MovieNetFront.ViewModel
     class AddMovieViewModel : BindableBase
     {
         public AddMovieViewModel()
+        {
+            AddGenreToSelect();
+            NavCommand = new MyICommand<string>(OnNav);
+            AddMovieCommand = new MyICommand<string>(AddMovie);
+        }
+
+        ServiceFacade ServiceFacade = ServiceFacade.Instance;
+
+        public MyICommand<string> AddMovieCommand { get; private set; }
+
+        private BindableBase _CurrentViewModel;
+
+        public BindableBase CurrentViewModel
+        {
+            get { return _CurrentViewModel; }
+            set { SetProperty(ref _CurrentViewModel, value); }
+        }
+
+        public MyICommand<string> NavCommand { get; set; }
+
+        private void OnNav(string destination)
+        {
+            UserHomeViewModel userHomeViewModel = new UserHomeViewModel();
+            switch (destination)
+            {
+                case "userHome":
+                    CurrentViewModel = userHomeViewModel;
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void AddGenreToSelect()
         {
             Genres = new ObservableCollection<string>();
             Genres.Add("Action");
@@ -29,6 +63,16 @@ namespace MovieNetFront.ViewModel
 
         public ObservableCollection<string> Genres { get; set; }
 
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                _title = value;
+            }
+        }
+
         private string _selectedGenre;
         public string SelectedGenre
         {
@@ -37,6 +81,44 @@ namespace MovieNetFront.ViewModel
             {
                 _selectedGenre = value;
             }
+        }
+
+        private string _summary;
+        public string Summary
+        {
+            get => _summary;
+            set
+            {
+                _summary = value;
+            }
+        }
+
+        private string _rating;
+        public string Rating
+        {
+            get => _rating;
+            set
+            {
+                _rating = value;
+            }
+        }
+
+        private void AddMovie(string obj)
+        {
+            Console.WriteLine("Title:" + _title);
+            Console.WriteLine("Genre:" + _selectedGenre);
+            Console.WriteLine("Summary:" + _summary);
+            Console.WriteLine("Rating:" + _rating);
+
+            /*if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true && string.IsNullOrEmpty(_confirmPassword) != true)
+            {
+                if (_password == _confirmPassword)
+                    ServiceFacade.CreateUser(_username, _password);
+                else
+                    MessageBox.Show("Error your passwords don't match", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+                MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);*/
         }
     }
 }

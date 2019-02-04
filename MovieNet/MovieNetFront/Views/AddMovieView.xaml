@@ -26,10 +26,10 @@
                 <Label Content="Rating" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
                 <DockPanel VerticalAlignment="Center" Margin="284,10,282,10">
                     <TextBox Text="{Binding ElementName=Rating, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
-                    <Slider x:Name="Rating" Maximum="10" TickPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" />
+                    <Slider x:Name="Rating" Value="{Binding Rating}" Maximum="10" TickPlacement="BottomRight" TickFrequency="0.5" IsSnapToTickEnabled="True" />
                 </DockPanel>
-                <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding RegisterCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
-                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="home" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
+                <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding AddMovieCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
+                <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="userHome" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>
             </StackPanel>
         </Border>
 

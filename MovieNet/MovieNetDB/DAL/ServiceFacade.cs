@@ -51,9 +51,11 @@ namespace MovieNetDB.DAL
             }
         }
 
-        public User LoginUser(string login, string password)
+        public int LoginUser(string login, string password)
         {
             User user = daoUser.LoginUser(login, password);
+
+            User user2 = daoUser.GetUserByLogin(login);
 
             if (user == null)
             {
@@ -63,10 +65,24 @@ namespace MovieNetDB.DAL
             {
                 MessageBox.Show("Welcome !", "Information correct", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+            return user2.Id;
+        }
+
+        public User GetUserByLogin(string login)
+        {
+            User user = daoUser.GetUserByLogin(login);
+            
             return user;
         }
 
-        public void CreateMovie(string title, string genre, string summary, double rating, int userId)
+        public User GetUserById(int id)
+        {
+            User user = daoUser.GetUserById(id);
+
+            return user;
+        }
+
+        public void CreateMovie(string title, string genre, string summary, User user)
         {
             var movieAlreadyExist = daoMovie.CheckIfExist(title);
 
@@ -76,7 +92,8 @@ namespace MovieNetDB.DAL
                 {
                     Title = title,
                     Genre = genre,
-                    Summary = summary
+                    Summary = summary,
+                    User = user
                 };
 
                 daoMovie.CreateMovie(movie);
@@ -86,6 +103,12 @@ namespace MovieNetDB.DAL
             {
                 MessageBox.Show("Error this movie already exist", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public List<Movie> GetAllMovies()
+        {
+            List<Movie> movies = daoMovie.GetMovies();
+            return movies;
         }
     }
 }

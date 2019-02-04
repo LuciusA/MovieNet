@@ -34,7 +34,7 @@ namespace MovieNetFront.ViewModel
         private void OnNav(string destination)
         {
             HomeViewModel homeViewModel = new HomeViewModel();
-            UserHomeViewModel userHomeViewModel = new UserHomeViewModel();
+            UserHomeViewModel userHomeViewModel = new UserHomeViewModel(_userId);
             switch (destination)
             {
                 case "home":
@@ -68,6 +68,16 @@ namespace MovieNetFront.ViewModel
             }
         }
 
+        private int _userId;
+        public int UserId
+        {
+            get => _userId;
+            set
+            {
+                _userId = value;
+            }
+        }
+
         private void Login(string obj)
         {
             Console.WriteLine("Login:" + _username);
@@ -75,9 +85,10 @@ namespace MovieNetFront.ViewModel
 
             if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true)
             {
-                User user = ServiceFacade.LoginUser(_username, _password);
-                if (user != null)
+                int userId = ServiceFacade.LoginUser(_username, _password);
+                if (userId != 0)
                 {
+                    _userId = userId;
                     OnNav("userHome");
                 }
             }

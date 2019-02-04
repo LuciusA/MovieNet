@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MovieNetFront"
              xmlns:views="clr-namespace:MovieNetFront.Views"
              xmlns:viewModels="clr-namespace:MovieNetFront.ViewModel"
+             xmlns:utils="clr-namespace:MovieNetFront.Utils"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -32,22 +33,19 @@
                 <Button Width="150">Test button 3</Button>
                 <Button Width="150">Test button 4</Button>
             </StackPanel>
-            <ListView Margin="10">
-                <ListViewItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Green</TextBlock>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Blue</TextBlock>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem IsSelected="True">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock>Red</TextBlock>
-                    </StackPanel>
-                </ListViewItem>
+            <ListView Margin="10" Name="movieList" ItemsSource="{Binding MovieList}" utils:GridViewSort.AutoSort="True" FontFamily="Microsoft YaHei Light">
+                <ListView.Resources>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                    </Style>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" Width="150" DisplayMemberBinding="{Binding Title}" utils:GridViewSort.PropertyName="Title" />
+                        <GridViewColumn Header="Genre" Width="150" DisplayMemberBinding="{Binding Genre}" utils:GridViewSort.PropertyName="Genre"/>
+                        <GridViewColumn Header="Synopsis" Width="480" DisplayMemberBinding="{Binding Summary}" utils:GridViewSort.PropertyName="Summary"/>
+                    </GridView>
+                </ListView.View>
             </ListView>
         </StackPanel>
 

@@ -1,4 +1,5 @@
-﻿using MovieNetDB.DAL;
+﻿using MovieNetDB;
+using MovieNetDB.DAL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,8 +13,10 @@ namespace MovieNetFront.ViewModel
 {
     class AddMovieViewModel : BindableBase
     {
-        public AddMovieViewModel()
+        public AddMovieViewModel(int id)
         {
+            Console.WriteLine("AddMovie UserID : " + id);
+            _userId = id;
             AddGenreToSelect();
             NavCommand = new MyICommand<string>(OnNav);
             AddMovieCommand = new MyICommand<string>(AddMovie);
@@ -35,7 +38,7 @@ namespace MovieNetFront.ViewModel
 
         private void OnNav(string destination)
         {
-            UserHomeViewModel userHomeViewModel = new UserHomeViewModel();
+            UserHomeViewModel userHomeViewModel = new UserHomeViewModel(_userId);
             switch (destination)
             {
                 case "userHome":
@@ -103,22 +106,31 @@ namespace MovieNetFront.ViewModel
             }
         }
 
+        private int _userId;
+        public int UserId
+        {
+            get => _userId;
+            set
+            {
+                _userId = value;
+            }
+        }
+
         private void AddMovie(string obj)
         {
             Console.WriteLine("Title:" + _title);
             Console.WriteLine("Genre:" + _selectedGenre);
             Console.WriteLine("Summary:" + _summary);
             Console.WriteLine("Rating:" + _rating);
+            Console.WriteLine("UserId:" + _userId);
 
-            /*if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true && string.IsNullOrEmpty(_confirmPassword) != true)
+            if (!string.IsNullOrEmpty(_title) && !string.IsNullOrEmpty(_selectedGenre) && !string.IsNullOrEmpty(_summary))
             {
-                if (_password == _confirmPassword)
-                    ServiceFacade.CreateUser(_username, _password);
-                else
-                    MessageBox.Show("Error your passwords don't match", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                User user = ServiceFacade.GetUserById(_userId);
+                ServiceFacade.CreateMovie(_title, _selectedGenre, _summary, user);
             }
             else
-                MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);*/
+                MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

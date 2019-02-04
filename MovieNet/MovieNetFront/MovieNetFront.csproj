@@ -74,6 +74,7 @@
     <Compile Include="Model\AddMovie.cs" />
     <Compile Include="Model\Home.cs" />
     <Compile Include="Model\UserHome.cs" />
+    <Compile Include="Utils\GridViewSort.cs" />
     <Compile Include="ViewModel\AddMovieViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\UserHomeViewModel.cs" />

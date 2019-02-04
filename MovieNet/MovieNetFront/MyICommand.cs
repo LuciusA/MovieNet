@@ -17,7 +17,7 @@ namespace MovieNetFront
         {
             _TargetExecuteMethod = executeMethod;
         }
-
+       
         public MyICommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;

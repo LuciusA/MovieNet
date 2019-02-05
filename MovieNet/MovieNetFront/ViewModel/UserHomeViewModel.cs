@@ -3,9 +3,11 @@ using MovieNetDB.DAL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MovieNetFront.ViewModel
@@ -18,8 +20,12 @@ namespace MovieNetFront.ViewModel
             _userId = id;
             addMovieViewModel = new AddMovieViewModel(_userId);
             NavCommand = new MyICommand<string>(OnNav);
-
-            _movieList = GetMovieList();
+            movieList = new CollectionViewSource();
+            movieList.Source = GetMovieList();
+            movieList.Filter += movieList_Filter;
+            
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Id");
+            movieList.GroupDescriptions.Add(groupDescription);
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
@@ -46,15 +52,7 @@ namespace MovieNetFront.ViewModel
             }
         }
 
-        private List<Movie> _movieList;
-        public List<Movie> MovieList
-        {
-            get => _movieList;
-            set
-            {
-                _movieList = value;
-            }
-        }
+        private CollectionViewSource movieList;
 
         private void OnNav(string destination)
         {
@@ -74,13 +72,66 @@ namespace MovieNetFront.ViewModel
         private List<Movie> GetMovieList()
         {
             List<Movie> movies = ServiceFacade.GetAllMovies();
-                return movies;
+            return movies;
         }
+
+        private string filterText;
 
         public ICommand SortCommand
         {
             get;
             private set;
+        }
+
+        public ICollectionView SourceCollection
+        {
+            get
+            {
+                return this.movieList.View;
+            }
+        }
+
+        public string FilterText
+        {
+            get
+            {
+                return filterText;
+            }
+            set
+            {
+                filterText = value;
+                this.movieList.View.Refresh();
+                RaisePropertyChanged("FilterText");
+            }
+        }
+
+        void movieList_Filter(object sender, FilterEventArgs e)
+        {
+            if (string.IsNullOrEmpty(FilterText))
+            {
+                e.Accepted = true;
+                return;
+            }
+
+            Movie movie = e.Item as Movie;
+            if (movie.Title.ToUpper().Contains(FilterText.ToUpper()) || movie.Genre.ToUpper().Contains(FilterText.ToUpper()))
+            {
+                e.Accepted = true;
+            }
+            else
+            {
+                e.Accepted = false;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

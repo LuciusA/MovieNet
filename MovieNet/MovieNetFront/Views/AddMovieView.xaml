@@ -22,7 +22,7 @@
                 <Label Content="Genre" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
                 <ComboBox x:Name="Genre" ItemsSource="{Binding Genres}" SelectedItem="{Binding SelectedGenre}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194" MaxDropDownHeight="150" BorderBrush="White" />
                 <Label Content="Summary" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
-                <TextBox x:Name="Summary" Text="{Binding Summary}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="284,0,282,0" Width="194" Height="55"/>
+                <TextBox x:Name="Summary" Text="{Binding Summary}" AcceptsReturn="True" TextWrapping="Wrap"  Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="284,0,282,0" Width="194" Height="55"/>
                 <Label Content="Rating" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
                 <DockPanel VerticalAlignment="Center" Margin="284,10,282,10">
                     <TextBox Text="{Binding ElementName=Rating, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />

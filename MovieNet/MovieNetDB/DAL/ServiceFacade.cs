@@ -60,12 +60,13 @@ namespace MovieNetDB.DAL
             if (user == null)
             {
                 MessageBox.Show("Error information incorrect", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
             }
             else
             {
                 MessageBox.Show("Welcome !", "Information correct", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return user2.Id;
             }
-            return user2.Id;
         }
 
         public User GetUserByLogin(string login)

@@ -96,8 +96,8 @@ namespace MovieNetFront.ViewModel
             }
         }
 
-        private string _rating;
-        public string Rating
+        private double _rating;
+        public double Rating
         {
             get => _rating;
             set
@@ -127,7 +127,7 @@ namespace MovieNetFront.ViewModel
             if (!string.IsNullOrEmpty(_title) && !string.IsNullOrEmpty(_selectedGenre) && !string.IsNullOrEmpty(_summary))
             {
                 User user = ServiceFacade.GetUserById(_userId);
-                ServiceFacade.CreateMovie(_title, _selectedGenre, _summary, user);
+                ServiceFacade.CreateMovie(_title, _selectedGenre, _summary, _rating, user);
                 OnNav("userHome");
             }
             else

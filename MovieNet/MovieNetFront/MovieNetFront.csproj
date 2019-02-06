@@ -76,11 +76,13 @@
     <Compile Include="Model\AddMovie.cs" />
     <Compile Include="Model\Home.cs" />
     <Compile Include="Model\MovieDetail.cs" />
+    <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Model\UserHome.cs" />
     <Compile Include="Utils\GridViewSort.cs" />
     <Compile Include="ViewModel\AddMovieViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MovieDetailViewModel.cs" />
+    <Compile Include="ViewModel\UserAccountViewModel.cs" />
     <Compile Include="ViewModel\UserHomeViewModel.cs" />
     <Compile Include="Views\AddMovieView.xaml.cs">
       <DependentUpon>AddMovieView.xaml</DependentUpon>
@@ -100,6 +102,9 @@
     </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAccountView.xaml.cs">
+      <DependentUpon>UserAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserHomeView.xaml.cs">
       <DependentUpon>UserHomeView.xaml</DependentUpon>
@@ -133,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

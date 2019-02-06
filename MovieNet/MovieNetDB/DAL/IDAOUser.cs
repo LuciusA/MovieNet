@@ -13,7 +13,7 @@ namespace MovieNetDB.DAL
         User LoginUser(string login, string password);
         List<User> GetUsers();
         void CreateUser(User user);
-        void UpdateUser(User user);
+        void UpdateUser(int id, string login, string password);
         void DeleteUser(int id);
     }
 }

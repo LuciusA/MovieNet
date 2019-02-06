@@ -29,7 +29,10 @@ namespace MovieNetFront.ViewModel
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
 
         private AddMovieViewModel addMovieViewModel;
-        MovieDetailViewModel movieDetailViewModel;
+
+        private MovieDetailViewModel movieDetailViewModel;
+
+        private UserAccountViewModel userAccountViewModel;
 
         private BindableBase _CurrentViewModel;
 
@@ -67,14 +70,18 @@ namespace MovieNetFront.ViewModel
 
         private void OnNav(string destination)
         {
-            movieDetailViewModel = new MovieDetailViewModel(_userId, _movieId);
             switch (destination)
             {
                 case "addMovie":
                     CurrentViewModel = addMovieViewModel;
                     break;
                 case "detailMovie":
+                    movieDetailViewModel = new MovieDetailViewModel(_userId, _movieId);
                     CurrentViewModel = movieDetailViewModel;
+                    break;
+                case "editAccount":
+                    userAccountViewModel = new UserAccountViewModel(_userId);
+                    CurrentViewModel = userAccountViewModel;
                     break;
                 default:
                     CurrentViewModel = CurrentViewModel;

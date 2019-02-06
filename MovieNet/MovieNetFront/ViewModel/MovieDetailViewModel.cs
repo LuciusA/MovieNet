@@ -21,9 +21,12 @@ namespace MovieNetFront.ViewModel
             _movieId = movieId;
             NavCommand = new MyICommand<string>(OnNav);
             AddCommentCommand = new MyICommand<string>(AddComment);
+            AddRatingCommand = new MyICommand<string>(AddRating);
             commentList = new CollectionViewSource();
             commentList.Source = GetCommentsByMovieId(_movieId);
             commentList.Filter += commentList_Filter;
+            GetMovieById(_movieId);
+            GetRatingByMovieId(_movieId);
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
@@ -39,6 +42,8 @@ namespace MovieNetFront.ViewModel
         public MyICommand<string> NavCommand { get; set; }
 
         public MyICommand<string> AddCommentCommand { get; private set; }
+
+        public MyICommand<string> AddRatingCommand { get; private set; }
 
         private int _userId;
         public int UserId
@@ -57,6 +62,46 @@ namespace MovieNetFront.ViewModel
             set
             {
                 _movieId = value;
+            }
+        }
+
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                _title = value;
+            }
+        }
+
+        private string _genre;
+        public string Genre
+        {
+            get => _genre;
+            set
+            {
+                _genre = value;
+            }
+        }
+
+        private double _rating;
+        public double Rating
+        {
+            get => _rating;
+            set
+            {
+                _rating = value;
+            }
+        }
+
+        private double _userRating;
+        public double UserRating
+        {
+            get => _userRating;
+            set
+            {
+                _userRating = value;
             }
         }
 
@@ -98,6 +143,22 @@ namespace MovieNetFront.ViewModel
             return comments;
         }
 
+        private double GetRatingByMovieId(int movieId)
+        {
+            double rating = ServiceFacade.GetRatingByMovieId(movieId);
+            _rating = Math.Round(rating, 2);
+            return rating;
+        }
+
+        private Movie GetMovieById(int movieId)
+        {
+            Movie movie = ServiceFacade.GetMovieById(movieId);
+            _title = movie.Title;
+            _genre = movie.Genre;
+            //_rating = movie.Rating;
+            return movie;
+        }
+
         private void AddComment(string obj)
         {
             Console.WriteLine("Comment:" + _comment);
@@ -108,6 +169,22 @@ namespace MovieNetFront.ViewModel
                 Movie movie = ServiceFacade.GetMovieById(_movieId);
                 ServiceFacade.CreateComment(_comment, user, movie);
                 MessageBox.Show("Comment added", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
+                OnNav("current");
+            }
+            else
+                MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void AddRating(string obj)
+        {
+            Console.WriteLine("Rating:" + _userRating);
+
+            if (!double.IsNaN(_rating))
+            {
+                User user = ServiceFacade.GetUserById(_userId);
+                Movie movie = ServiceFacade.GetMovieById(_movieId);
+                ServiceFacade.CreateRating(_userRating, user, movie);
+                MessageBox.Show("Rating added", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 OnNav("current");
             }
             else
@@ -152,8 +229,8 @@ namespace MovieNetFront.ViewModel
                 return;
             }
 
-            Movie movie = e.Item as Movie;
-            if (movie.Title.ToUpper().Contains(FilterText.ToUpper()) || movie.Genre.ToUpper().Contains(FilterText.ToUpper()))
+            Comment comment = e.Item as Comment;
+            if (comment.User.Login.ToUpper().Contains(FilterText.ToUpper()))
             {
                 e.Accepted = true;
             }

@@ -13,6 +13,7 @@ namespace MovieNetDB.DAL
         private readonly DAOUser daoUser;
         private readonly DAOMovie daoMovie;
         private readonly DAOComment daoComment;
+        private readonly DAORating daoRating;
         private readonly DataModelContainer context;
 
         public ServiceFacade()
@@ -21,6 +22,7 @@ namespace MovieNetDB.DAL
             daoUser = new DAOUser(context);
             daoMovie = new DAOMovie(context);
             daoComment = new DAOComment(context);
+            daoRating = new DAORating(context);
         }
 
         public static ServiceFacade Instance
@@ -51,6 +53,12 @@ namespace MovieNetDB.DAL
             {
                 MessageBox.Show("Error login already taken", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public void UpdateUser(int id, string login, string password)
+        {
+            daoUser.UpdateUser(id, login, password);
+            MessageBox.Show("Your modification has been saved", "User updated", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public int LoginUser(string login, string password)
@@ -85,7 +93,7 @@ namespace MovieNetDB.DAL
             return user;
         }
 
-        public void CreateMovie(string title, string genre, string summary, User user)
+        public void CreateMovie(string title, string genre, string summary, double _rating, User user)
         {
             var movieAlreadyExist = daoMovie.CheckIfExist(title);
 
@@ -99,7 +107,15 @@ namespace MovieNetDB.DAL
                     User = user
                 };
 
+                Rating rating = new Rating
+                {
+                    Rate = _rating,
+                    User = user,
+                    Movie = movie
+                };
+
                 daoMovie.CreateMovie(movie);
+                daoRating.CreateRating(rating);
                 MessageBox.Show("Your movie has been succesfully created", "Movie created", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
@@ -146,6 +162,22 @@ namespace MovieNetDB.DAL
 
             return comments;
         }
-        
+
+        public void CreateRating(double _rating, User user, Movie movie)
+        {
+            Rating rating = new Rating
+            {
+                Rate = _rating,
+                User = user,
+                Movie = movie
+            };
+            daoRating.CreateRating(rating);
+        }
+
+        public double GetRatingByMovieId(int id)
+        {
+            return daoRating.GetRatingsByMovieId(id);
+        }
+
     }
 }

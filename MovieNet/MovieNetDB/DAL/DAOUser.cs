@@ -48,9 +48,15 @@ namespace MovieNetDB.DAL
             context.UserSet.Remove(user);
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id, string login, string password)
         {
-            context.Entry(user).State = EntityState.Modified;
+            //context.UserSet.Entry(user).State = EntityState.Modified;
+
+            var query = context.UserSet.FirstOrDefault(u => u.Id == id);
+            Console.WriteLine("User ffrezofre:" +login);
+            query.Login = login;
+            query.Password = password;
+            SaveUser();
         }
 
         public void SaveUser()

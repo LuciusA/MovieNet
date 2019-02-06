@@ -34,10 +34,14 @@ namespace MovieNetFront.ViewModel
         private void OnNav(string destination)
         {
             HomeViewModel homeViewModel = new HomeViewModel();
+            LoginViewModel loginViewModel = new LoginViewModel();
             switch (destination)
             {
                 case "home":
                     CurrentViewModel = homeViewModel;
+                    break;
+                case "login":
+                    CurrentViewModel = loginViewModel;
                     break;
                 default:
                     break;
@@ -83,7 +87,10 @@ namespace MovieNetFront.ViewModel
             if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true && string.IsNullOrEmpty(_confirmPassword) != true)
             {
                 if (_password == _confirmPassword)
+                {
                     ServiceFacade.CreateUser(_username, _password);
+                    OnNav("login");
+                }
                 else
                     MessageBox.Show("Error your passwords don't match", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
             }

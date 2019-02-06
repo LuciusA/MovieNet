@@ -14,6 +14,9 @@
         <DataTemplate DataType = "{x:Type viewModels:AddMovieViewModel}">
             <views:AddMovieView/>
         </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:MovieDetailViewModel}">
+            <views:MovieDetailView/>
+        </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
@@ -32,7 +35,7 @@
                 <Button Command = "{Binding NavCommand}"
                     CommandParameter = "addMovie" Background="#FFB4B4B4" FontFamily="Microsoft YaHei Light" Width="150" BorderBrush="#FFA4A4A4" Foreground="White" FontSize="20">My Movies</Button>
                 <Button Command = "{Binding NavCommand}"
-                    CommandParameter = "addMovie" Background="#FFB4B4B4" FontFamily="Microsoft YaHei Light" Width="150" BorderBrush="#FFA4A4A4" Foreground="White" FontSize="20">Add a movie</Button>
+                    CommandParameter = "detailMovie" Background="#FFB4B4B4" FontFamily="Microsoft YaHei Light" Width="150" BorderBrush="#FFA4A4A4" Foreground="White" FontSize="20">Comments</Button>
                 <Button Command = "{Binding NavCommand}"
                     CommandParameter = "addMovie" Background="#FFB4B4B4" FontFamily="Microsoft YaHei Light" Width="150" BorderBrush="#FFA4A4A4" Foreground="White" FontSize="20">My Account</Button>
             </StackPanel>
@@ -47,29 +50,20 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" Width="150" DisplayMemberBinding="{Binding Title}" utils:GridViewSort.PropertyName="Title" />
-                        <GridViewColumn Header="Genre" Width="150" DisplayMemberBinding="{Binding Genre}" utils:GridViewSort.PropertyName="Genre"/>
+                        <GridViewColumn Header="Genre" Width="120" DisplayMemberBinding="{Binding Genre}" utils:GridViewSort.PropertyName="Genre"/>
                         <GridViewColumn Header="Rating" Width="60" DisplayMemberBinding="{Binding Rating}" utils:GridViewSort.PropertyName="Rating"/>
-                        <GridViewColumn Header="Synopsis" Width="380" DisplayMemberBinding="{Binding Summary}" utils:GridViewSort.PropertyName="Summary"/>
-                        <!--<GridViewColumn Width="Auto" Header="+">
+                        <GridViewColumn Header="Synopsis" Width="370" DisplayMemberBinding="{Binding Summary}" utils:GridViewSort.PropertyName="Summary"/>
+                        <GridViewColumn Width="Auto" Header="Details">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Expander ExpandDirection="Down">
-                                        <TextBlock Width="300" Foreground="Green" FontSize="14" Text="Prout"/>
-                                    </Expander>
+                                    <Button Command = "{Binding DataContext.GetTitleMovieCommand,
+                                            RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        CommandParameter = "{Binding Title}" Background="#FFB4B4B4" FontFamily="Microsoft YaHei Light" BorderBrush="#FFA4A4A4" Foreground="White" FontSize="20">Go</Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
-                        </GridViewColumn>-->
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
-                <ListView.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Title}"/>
-                            </DataTemplate>
-                        </GroupStyle.HeaderTemplate>
-                    </GroupStyle>
-                </ListView.GroupStyle>
             </ListView>
         </StackPanel>
 

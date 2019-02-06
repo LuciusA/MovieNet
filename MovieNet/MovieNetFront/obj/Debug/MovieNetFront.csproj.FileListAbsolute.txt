@@ -35,3 +35,5 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.csproj.CopyComplete
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.exe
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\MovieNetFront.pdb
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\MovieDetailView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\MovieDetailView.baml

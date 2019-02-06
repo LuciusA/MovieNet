@@ -71,8 +71,10 @@
     <Compile Include="Comment.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAOComment.cs" />
     <Compile Include="DAL\DAOMovie.cs" />
     <Compile Include="DAL\DAOUser.cs" />
+    <Compile Include="DAL\IDAOComment.cs" />
     <Compile Include="DAL\IDAOMovie.cs" />
     <Compile Include="DAL\IDAOUser.cs" />
     <Compile Include="DAL\ServiceFacade.cs" />

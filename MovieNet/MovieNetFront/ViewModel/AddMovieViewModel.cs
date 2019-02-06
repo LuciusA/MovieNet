@@ -128,6 +128,7 @@ namespace MovieNetFront.ViewModel
             {
                 User user = ServiceFacade.GetUserById(_userId);
                 ServiceFacade.CreateMovie(_title, _selectedGenre, _summary, user);
+                OnNav("userHome");
             }
             else
                 MessageBox.Show("Error you have to fill all the fields", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);

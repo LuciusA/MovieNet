@@ -20,17 +20,16 @@ namespace MovieNetFront.ViewModel
             _userId = id;
             addMovieViewModel = new AddMovieViewModel(_userId);
             NavCommand = new MyICommand<string>(OnNav);
+            GetTitleMovieCommand = new MyICommand<string>(GetMovieTitle);
             movieList = new CollectionViewSource();
             movieList.Source = GetMovieList();
             movieList.Filter += movieList_Filter;
-            
-            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Id");
-            movieList.GroupDescriptions.Add(groupDescription);
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
 
         private AddMovieViewModel addMovieViewModel;
+        MovieDetailViewModel movieDetailViewModel;
 
         private BindableBase _CurrentViewModel;
 
@@ -42,6 +41,8 @@ namespace MovieNetFront.ViewModel
 
         public MyICommand<string> NavCommand { get; set; }
 
+        public MyICommand<string> GetTitleMovieCommand { get; private set; }
+
         private int _userId;
         public int UserId
         {
@@ -52,21 +53,42 @@ namespace MovieNetFront.ViewModel
             }
         }
 
+        private int _movieId;
+        public int MovieId
+        {
+            get => _movieId;
+            set
+            {
+                _movieId = value;
+            }
+        }
+
         private CollectionViewSource movieList;
 
         private void OnNav(string destination)
         {
+            movieDetailViewModel = new MovieDetailViewModel(_userId, _movieId);
             switch (destination)
             {
                 case "addMovie":
                     CurrentViewModel = addMovieViewModel;
                     break;
-                case "login":
+                case "detailMovie":
+                    CurrentViewModel = movieDetailViewModel;
                     break;
                 default:
                     CurrentViewModel = CurrentViewModel;
                     break;
             }
+        }
+
+        private void GetMovieTitle(string title)
+        {
+            Console.WriteLine(title);
+            Movie movie = ServiceFacade.GetMovieByTitle(title);
+            _movieId = movie.Id;
+            Console.WriteLine("MovieIDDDDD :" +_movieId);
+            OnNav("detailMovie");
         }
 
         private List<Movie> GetMovieList()
@@ -101,10 +123,10 @@ namespace MovieNetFront.ViewModel
             {
                 filterText = value;
                 this.movieList.View.Refresh();
-                RaisePropertyChanged("FilterText");
+                //RaisePropertyChanged("FilterText");
             }
         }
-
+       
         void movieList_Filter(object sender, FilterEventArgs e)
         {
             if (string.IsNullOrEmpty(FilterText))
@@ -124,7 +146,7 @@ namespace MovieNetFront.ViewModel
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        /*public event PropertyChangedEventHandler PropertyChanged;
 
         public void RaisePropertyChanged(string propertyName)
         {
@@ -132,6 +154,6 @@ namespace MovieNetFront.ViewModel
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+        }*/
     }
 }

@@ -26,6 +26,11 @@ namespace MovieNetDB.DAL
             return context.MovieSet.Find(movieId);
         }
 
+        public Movie GetMovieByTitle(string title)
+        {
+            return context.MovieSet.FirstOrDefault((u => u.Title == title));
+        }
+
         public void CreateMovie(Movie movie)
         {
             context.MovieSet.Add(movie);

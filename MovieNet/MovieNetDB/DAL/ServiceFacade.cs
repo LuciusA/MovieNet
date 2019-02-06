@@ -12,6 +12,7 @@ namespace MovieNetDB.DAL
         private static ServiceFacade INSTANCE = null;
         private readonly DAOUser daoUser;
         private readonly DAOMovie daoMovie;
+        private readonly DAOComment daoComment;
         private readonly DataModelContainer context;
 
         public ServiceFacade()
@@ -19,6 +20,7 @@ namespace MovieNetDB.DAL
             context = new DataModelContainer();
             daoUser = new DAOUser(context);
             daoMovie = new DAOMovie(context);
+            daoComment = new DAOComment(context);
         }
 
         public static ServiceFacade Instance
@@ -111,5 +113,39 @@ namespace MovieNetDB.DAL
             List<Movie> movies = daoMovie.GetMovies();
             return movies;
         }
+
+        public Movie GetMovieById(int id)
+        {
+            Movie movie = daoMovie.GetMovieById(id);
+
+            return movie;
+        }
+
+        public Movie GetMovieByTitle(string title)
+        {
+            Movie movie = daoMovie.GetMovieByTitle(title);
+
+            return movie;
+        }
+
+        public void CreateComment(string _comment, User user, Movie movie)
+        {
+            Comment comment = new Comment
+            {
+                MovieComment = _comment,
+                User = user,
+                Movie = movie
+            };
+            Console.WriteLine(comment.MovieComment);
+            daoComment.CreateComment(comment);
+        }
+
+        public List<Comment> GetCommentsByMovieId(int id)
+        {
+            List<Comment> comments = daoComment.GetCommentsByMovieId(id);
+
+            return comments;
+        }
+        
     }
 }

@@ -74,18 +74,24 @@
     </ApplicationDefinition>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Model\AddMovie.cs" />
+    <Compile Include="Model\EditMovie.cs" />
     <Compile Include="Model\Home.cs" />
     <Compile Include="Model\MovieDetail.cs" />
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Model\UserHome.cs" />
     <Compile Include="Utils\GridViewSort.cs" />
     <Compile Include="ViewModel\AddMovieViewModel.cs" />
+    <Compile Include="ViewModel\EditMovieViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MovieDetailViewModel.cs" />
     <Compile Include="ViewModel\UserAccountViewModel.cs" />
     <Compile Include="ViewModel\UserHomeViewModel.cs" />
+    <Compile Include="ViewModel\UserMoviesViewModel.cs" />
     <Compile Include="Views\AddMovieView.xaml.cs">
       <DependentUpon>AddMovieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditMovieView.xaml.cs">
+      <DependentUpon>EditMovieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -109,7 +115,14 @@
     <Compile Include="Views\UserHomeView.xaml.cs">
       <DependentUpon>UserHomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserMoviesView.xaml.cs">
+      <DependentUpon>UserMoviesView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\AddMovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditMovieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserMoviesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

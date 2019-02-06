@@ -34,6 +34,8 @@ namespace MovieNetFront.ViewModel
 
         private UserAccountViewModel userAccountViewModel;
 
+        private UserMoviesViewModel userMoviesViewModel;
+
         private BindableBase _CurrentViewModel;
 
         public BindableBase CurrentViewModel
@@ -82,6 +84,10 @@ namespace MovieNetFront.ViewModel
                 case "editAccount":
                     userAccountViewModel = new UserAccountViewModel(_userId);
                     CurrentViewModel = userAccountViewModel;
+                    break;
+                case "userMovies":
+                    userMoviesViewModel = new UserMoviesViewModel(_userId, _movieId);
+                    CurrentViewModel = userMoviesViewModel;
                     break;
                 default:
                     CurrentViewModel = CurrentViewModel;

@@ -1,4 +1,5 @@
-﻿using MovieNetDB.DAL;
+﻿using MovieNetDB;
+using MovieNetDB.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace MovieNetFront.ViewModel
             _userId = userId;
             NavCommand = new MyICommand<string>(OnNav);
             EditAccountCommand = new MyICommand<string>(EditAccount);
+            User user = GetUser(_userId);
+            _username = user.Login;
+            _password = user.Password;
         }
 
         ServiceFacade ServiceFacade = ServiceFacade.Instance;
@@ -82,6 +86,12 @@ namespace MovieNetFront.ViewModel
             {
                 _userId = value;
             }
+        }
+
+        public User GetUser(int userId)
+        {
+            User user = ServiceFacade.GetUserById(userId);
+            return user;
         }
 
         private void EditAccount(string obj)

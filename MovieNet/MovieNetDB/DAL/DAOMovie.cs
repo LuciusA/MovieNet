@@ -21,7 +21,12 @@ namespace MovieNetDB.DAL
             return context.MovieSet.ToList();
         }
 
-        public Movie  GetMovieById(int movieId)
+        public List<Movie> GetMoviesByUserId(int userId)
+        {
+            return context.MovieSet.Where(u => u.User.Id == userId).ToList();
+        }
+
+        public Movie GetMovieById(int movieId)
         {
             return context.MovieSet.Find(movieId);
         }
@@ -45,12 +50,22 @@ namespace MovieNetDB.DAL
         public void DeleteMovie(int movieId)
         {
             Movie movie = context.MovieSet.Find(movieId);
+            List<Rating> ratings = context.RatingSet.Where(r => r.Movie.Id == movieId).ToList();
+            foreach(Rating rating in ratings)
+            {
+                context.RatingSet.Remove(rating);
+            }
             context.MovieSet.Remove(movie);
+            SaveMovie();
         }
 
-        public void UpdateMovie(Movie movie)
+        public void UpdateMovie(int id, string title, string genre, string summary, User user)
         {
-            context.Entry(movie).State = EntityState.Modified;
+            var query = context.MovieSet.FirstOrDefault(u => u.Id == id);
+            query.Title = title;
+            query.Genre = genre;
+            query.Summary = summary;
+            SaveMovie();
         }
 
         public void SaveMovie()

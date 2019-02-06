@@ -50,10 +50,7 @@ namespace MovieNetDB.DAL
 
         public void UpdateUser(int id, string login, string password)
         {
-            //context.UserSet.Entry(user).State = EntityState.Modified;
-
             var query = context.UserSet.FirstOrDefault(u => u.Id == id);
-            Console.WriteLine("User ffrezofre:" +login);
             query.Login = login;
             query.Password = password;
             SaveUser();

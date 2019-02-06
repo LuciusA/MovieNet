@@ -39,3 +39,7 @@ C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\MovieDe
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\MovieDetailView.baml
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserAccountView.g.cs
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserAccountView.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserMoviesView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\UserMoviesView.baml
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\EditMovieView.g.cs
+C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\obj\Debug\Views\EditMovieView.baml

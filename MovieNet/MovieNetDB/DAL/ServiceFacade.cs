@@ -116,7 +116,7 @@ namespace MovieNetDB.DAL
 
                 daoMovie.CreateMovie(movie);
                 daoRating.CreateRating(rating);
-                MessageBox.Show("Your movie has been succesfully created", "Movie created", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Your movie has been succesfully created", "Movie created", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
@@ -124,9 +124,29 @@ namespace MovieNetDB.DAL
             }
         }
 
+        public void DeleteMovie(string title)
+        {
+            Movie movie = daoMovie.GetMovieByTitle(title);
+            int movieId = movie.Id;
+            daoMovie.DeleteMovie(movieId);
+            MessageBox.Show("Your movie has been succesfully delete", "Movie deleted", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        public void UpdateMovie(int id, string title, string genre, string summary, User user)
+        {
+            daoMovie.UpdateMovie(id, title, genre, summary, user);
+            MessageBox.Show("Your modification has been saved", "User updated", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
         public List<Movie> GetAllMovies()
         {
             List<Movie> movies = daoMovie.GetMovies();
+            return movies;
+        }
+
+        public List<Movie> GetMoviesByUserId(int id)
+        {
+            List<Movie> movies = daoMovie.GetMoviesByUserId(id);
             return movies;
         }
 

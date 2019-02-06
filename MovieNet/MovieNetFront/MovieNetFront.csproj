@@ -80,6 +80,7 @@
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Model\UserHome.cs" />
     <Compile Include="Utils\GridViewSort.cs" />
+    <Compile Include="Utils\PasswordBoxAssistant.cs" />
     <Compile Include="ViewModel\AddMovieViewModel.cs" />
     <Compile Include="ViewModel\EditMovieViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />

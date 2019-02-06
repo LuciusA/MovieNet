@@ -11,11 +11,20 @@ namespace MovieNetDB.DAL
     {
         private DataModelContainer context;
 
+        //INIT CONTEXT
         public DAORating(DataModelContainer context)
         {
             this.context = context;
         }
 
+        //CREATE RATING
+        public void CreateRating(Rating rating)
+        {
+            context.RatingSet.Add(rating);
+            SaveRating();
+        }
+
+        //GET RATING
         public double GetRatingsByMovieId(int movieId)
         {
             var result = context.RatingSet.Where(u => u.Movie.Id == movieId);
@@ -35,28 +44,26 @@ namespace MovieNetDB.DAL
             return context.RatingSet.Find(ratingId);
         }
 
-        public void CreateRating(Rating rating)
-        {
-            context.RatingSet.Add(rating);
-            context.SaveChanges();
-        }
-
-        public void DeleteRating(int ratingId)
-        {
-            Rating rating = context.RatingSet.Find(ratingId);
-            context.RatingSet.Remove(rating);
-        }
-
+        //UPDATE RATING
         public void UpdateRating(Rating rating)
         {
             context.Entry(rating).State = EntityState.Modified;
         }
 
+        //DELETE RATING
+        public void DeleteRating(int ratingId)
+        {
+            Rating rating = context.RatingSet.Find(ratingId);
+            context.RatingSet.Remove(rating);
+        }
+        
+        //SAVE CONTEXT
         public void SaveRating()
         {
             context.SaveChanges();
         }
 
+        //DELETE OBJECT
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)

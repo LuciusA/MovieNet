@@ -16,7 +16,6 @@ namespace MovieNetFront.ViewModel
     {
         public MovieDetailViewModel(int userId, int movieId)
         {
-            Console.WriteLine("C'est le movieid :" + movieId);
             _userId = userId;
             _movieId = movieId;
             NavCommand = new MyICommand<string>(OnNav);
@@ -161,8 +160,6 @@ namespace MovieNetFront.ViewModel
 
         private void AddComment(string obj)
         {
-            Console.WriteLine("Comment:" + _comment);
-
             if (!string.IsNullOrEmpty(_comment))
             {
                 User user = ServiceFacade.GetUserById(_userId);
@@ -177,8 +174,6 @@ namespace MovieNetFront.ViewModel
 
         private void AddRating(string obj)
         {
-            Console.WriteLine("Rating:" + _userRating);
-
             if (!double.IsNaN(_rating))
             {
                 User user = ServiceFacade.GetUserById(_userId);

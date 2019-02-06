@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\Antonin\Desktop\MovieNet\MovieNet\MovieNetFront\App.xaml
 101343287993
 
-39-1220524235
+401302239874
 16-875074738
 Views\AddMovieView.xaml;Views\EditMovieView.xaml;Views\HomeView.xaml;MainWindow.xaml;Views\LoginView.xaml;Views\MovieDetailView.xaml;Views\RegisterView.xaml;Views\UserAccountView.xaml;Views\UserHomeView.xaml;Views\UserMoviesView.xaml;
 
-False
+True
 

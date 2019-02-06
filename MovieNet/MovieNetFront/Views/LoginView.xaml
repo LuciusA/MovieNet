@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MovieNetFront.Views"
              xmlns:views="clr-namespace:MovieNetFront.Views"
              xmlns:viewModels="clr-namespace:MovieNetFront.ViewModel"
+             xmlns:utils="clr-namespace:MovieNetFront.Utils"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -29,7 +30,9 @@
                 <Label Content="Login" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalContentAlignment="Center"/>
                 <TextBox x:Name="Login" Text="{Binding Username}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
                 <Label Content="Password" Foreground="White" FontFamily="Microsoft YaHei Light" HorizontalAlignment="Center"/>
-                <TextBox x:Name="Password" Text="{Binding Password}" Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
+                <PasswordBox x:Name="PasswordBox"
+                            utils:PasswordBoxAssistant.BindPassword="true"  utils:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Background="White" Foreground="Black" FontSize="18" HorizontalAlignment="Center" Margin="234,0,232,0" Width="194"/>
                 <Separator Margin="234,2,232,2" Height="22" Background="{x:Null}"/>
                 <Button Content="Submit" Background="White" Foreground="Black" FontSize="18" Command="{Binding LoginCommand}" Width="76" HorizontalAlignment="Center" Margin="292,0" RenderTransformOrigin="0.618,2.179" BorderBrush="White" />
                 <Button Content="Back" Background="{x:Null}" Foreground="Black" FontSize="18" Command="{Binding NavCommand}" CommandParameter="home" Width="75" HorizontalAlignment="Center" FontFamily="Microsoft YaHei Light" BorderBrush="{x:Null}"/>

@@ -80,9 +80,6 @@ namespace MovieNetFront.ViewModel
 
         private void Login(string obj)
         {
-            Console.WriteLine("Login:" + _username);
-            Console.WriteLine("Password:" + _password);
-
             if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true)
             {
                 int userId = ServiceFacade.LoginUser(_username, _password);

@@ -11,11 +11,20 @@ namespace MovieNetDB.DAL
     {
         private DataModelContainer context;
 
+        //INIT CONTEXT
         public DAOMovie(DataModelContainer context)
         {
             this.context = context;
         }
 
+        //CREATE MOVIE
+        public void CreateMovie(Movie movie)
+        {
+            context.MovieSet.Add(movie);
+            SaveMovie();
+        }
+
+        //GET MOVIE
         public List<Movie> GetMovies()
         {
             return context.MovieSet.ToList();
@@ -36,29 +45,7 @@ namespace MovieNetDB.DAL
             return context.MovieSet.FirstOrDefault((u => u.Title == title));
         }
 
-        public void CreateMovie(Movie movie)
-        {
-            context.MovieSet.Add(movie);
-            context.SaveChanges();
-        }
-
-        public Movie CheckIfExist(string title)
-        {
-            return context.MovieSet.FirstOrDefault((u => u.Title == title));
-        }
-
-        public void DeleteMovie(int movieId)
-        {
-            Movie movie = context.MovieSet.Find(movieId);
-            List<Rating> ratings = context.RatingSet.Where(r => r.Movie.Id == movieId).ToList();
-            foreach(Rating rating in ratings)
-            {
-                context.RatingSet.Remove(rating);
-            }
-            context.MovieSet.Remove(movie);
-            SaveMovie();
-        }
-
+        //UPDATE MOVIE
         public void UpdateMovie(int id, string title, string genre, string summary, User user)
         {
             var query = context.MovieSet.FirstOrDefault(u => u.Id == id);
@@ -68,11 +55,31 @@ namespace MovieNetDB.DAL
             SaveMovie();
         }
 
+        // DELETE MOVIE
+        public void DeleteMovie(int movieId)
+        {
+            Movie movie = context.MovieSet.Find(movieId);
+            List<Rating> ratings = context.RatingSet.Where(r => r.Movie.Id == movieId).ToList();
+            foreach (Rating rating in ratings)
+            {
+                context.RatingSet.Remove(rating);
+            }
+            context.MovieSet.Remove(movie);
+            SaveMovie();
+        }
+
+        public Movie CheckIfExist(string title)
+        {
+            return context.MovieSet.FirstOrDefault((u => u.Title == title));
+        }
+
+        //SAVE CONTEXT
         public void SaveMovie()
         {
             context.SaveChanges();
         }
 
+        //DELETE OBJECT
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)

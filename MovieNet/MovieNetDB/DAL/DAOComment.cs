@@ -13,11 +13,20 @@ namespace MovieNetDB.DAL
     {
         private DataModelContainer context;
 
+        //INIT CONTEXT
         public DAOComment(DataModelContainer context)
         {
             this.context = context;
         }
 
+        //CREATE METHODS
+        public void CreateComment(Comment comment)
+        {
+            context.CommentSet.Add(comment);
+            SaveComment();
+        }
+
+        //GET METHODS
         public List<Comment> GetCommentsByMovieId(int movieId)
         {
             return context.CommentSet.Where(u => u.Movie.Id == movieId).ToList();
@@ -33,28 +42,26 @@ namespace MovieNetDB.DAL
             return context.CommentSet.Find(commentId);
         }
 
-        public void CreateComment(Comment comment)
+        //UPDATE METHODS
+        public void UpdateComment(Comment comment)
         {
-            context.CommentSet.Add(comment);
-            context.SaveChanges();
+            context.Entry(comment).State = EntityState.Modified;
         }
 
+        //DELETE METHODS
         public void DeleteComment(int commentId)
         {
             Comment comment = context.CommentSet.Find(commentId);
             context.CommentSet.Remove(comment);
         }
 
-        public void UpdateComment(Comment comment)
-        {
-            context.Entry(comment).State = EntityState.Modified;
-        }
-
+        //SAVE CONTEXT
         public void SaveComment()
         {
             context.SaveChanges();
         }
 
+        //DELETE OBJECT
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)

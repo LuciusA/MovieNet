@@ -96,10 +96,6 @@ namespace MovieNetFront.ViewModel
 
         private void EditAccount(string obj)
         {
-            Console.WriteLine("Login:" + _username);
-            Console.WriteLine("Password:" + _password);
-            Console.WriteLine("ConfirmPassword:" + _confirmPassword);
-
             if (string.IsNullOrEmpty(_username) != true && string.IsNullOrEmpty(_password) != true && string.IsNullOrEmpty(_confirmPassword) != true)
             {
                 if (_password == _confirmPassword)

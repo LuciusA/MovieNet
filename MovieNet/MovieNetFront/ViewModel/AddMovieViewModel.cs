@@ -15,7 +15,6 @@ namespace MovieNetFront.ViewModel
     {
         public AddMovieViewModel(int id)
         {
-            Console.WriteLine("AddMovie UserID : " + id);
             _userId = id;
             AddGenreToSelect();
             NavCommand = new MyICommand<string>(OnNav);
@@ -118,12 +117,6 @@ namespace MovieNetFront.ViewModel
 
         private void AddMovie(string obj)
         {
-            Console.WriteLine("Title:" + _title);
-            Console.WriteLine("Genre:" + _selectedGenre);
-            Console.WriteLine("Summary:" + _summary);
-            Console.WriteLine("Rating:" + _rating);
-            Console.WriteLine("UserId:" + _userId);
-
             if (!string.IsNullOrEmpty(_title) && !string.IsNullOrEmpty(_selectedGenre) && !string.IsNullOrEmpty(_summary))
             {
                 User user = ServiceFacade.GetUserById(_userId);

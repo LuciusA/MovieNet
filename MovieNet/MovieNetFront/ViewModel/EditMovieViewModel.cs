@@ -14,13 +14,11 @@ namespace MovieNetFront.ViewModel
     {
         public EditMovieViewModel(int userId, int movieId)
         {
-            Console.WriteLine("1 erTest du movieid :" + movieId);
             _userId = userId;
             _movieId = movieId;
             AddGenreToSelect();
             NavCommand = new MyICommand<string>(OnNav);
             EditMovieCommand = new MyICommand<string>(EditMovie);
-            Console.WriteLine("Test du movieid :" + _movieId);
             Movie movie = GetMovie(_movieId);
             _title = movie.Title;
             _selectedGenre = movie.Genre;
@@ -129,11 +127,6 @@ namespace MovieNetFront.ViewModel
 
         private void EditMovie(string obj)
         {
-            Console.WriteLine("Title:" + _title);
-            Console.WriteLine("Genre:" + _selectedGenre);
-            Console.WriteLine("Summary:" + _summary);
-            Console.WriteLine("UserId:" + _userId);
-
             if (!string.IsNullOrEmpty(_title) && !string.IsNullOrEmpty(_selectedGenre) && !string.IsNullOrEmpty(_summary))
             {
                 User user = ServiceFacade.GetUserById(_userId);

@@ -11,11 +11,20 @@ namespace MovieNetDB.DAL
     {
         private DataModelContainer context;
 
+        //INIT CONTEXT
         public DAOUser(DataModelContainer context)
         {
             this.context = context;
         }
 
+        //CREATE USER
+        public void CreateUser(User user)
+        {
+            context.UserSet.Add(user);
+            SaveUser();
+        }
+
+        //GET USER
         public List<User> GetUsers()
         {
             return context.UserSet.ToList();
@@ -31,23 +40,7 @@ namespace MovieNetDB.DAL
             return context.UserSet.FirstOrDefault((u => u.Login == login));
         }
 
-        public void CreateUser(User user)
-        {
-            context.UserSet.Add(user);
-            context.SaveChanges();
-        }
-
-        public User LoginUser(string login, string password) 
-        {
-            return context.UserSet.FirstOrDefault(u => u.Login == login && u.Password == password);
-        }
-
-        public void DeleteUser(int userId)
-        {
-            User user = context.UserSet.Find(userId);
-            context.UserSet.Remove(user);
-        }
-
+        //UPDATE USER
         public void UpdateUser(int id, string login, string password)
         {
             var query = context.UserSet.FirstOrDefault(u => u.Id == id);
@@ -56,11 +49,25 @@ namespace MovieNetDB.DAL
             SaveUser();
         }
 
+        //DELETE USER
+        public void DeleteUser(int userId)
+        {
+            User user = context.UserSet.Find(userId);
+            context.UserSet.Remove(user);
+        }
+
+        public User LoginUser(string login, string password) 
+        {
+            return context.UserSet.FirstOrDefault(u => u.Login == login && u.Password == password);
+        }
+
+        //SAVE CONTEXT
         public void SaveUser()
         {
             context.SaveChanges();
         }
 
+        //DELETE OBJECT
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)

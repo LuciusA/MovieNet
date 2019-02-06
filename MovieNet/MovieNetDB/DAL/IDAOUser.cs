@@ -8,12 +8,12 @@ namespace MovieNetDB.DAL
 {
     public interface IDAOUser
     {
+        void CreateUser(User user);
         User GetUserById(int id);
         User GetUserByLogin(string login);
-        User LoginUser(string login, string password);
         List<User> GetUsers();
-        void CreateUser(User user);
         void UpdateUser(int id, string login, string password);
         void DeleteUser(int id);
+        User LoginUser(string login, string password);
     }
 }

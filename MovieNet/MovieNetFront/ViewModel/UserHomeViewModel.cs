@@ -16,7 +16,6 @@ namespace MovieNetFront.ViewModel
     {
         public UserHomeViewModel(int id)
         {
-            Console.WriteLine("UserId ; " + id);
             _userId = id;
             addMovieViewModel = new AddMovieViewModel(_userId);
             NavCommand = new MyICommand<string>(OnNav);
@@ -97,10 +96,8 @@ namespace MovieNetFront.ViewModel
 
         private void GetMovieTitle(string title)
         {
-            Console.WriteLine(title);
             Movie movie = ServiceFacade.GetMovieByTitle(title);
             _movieId = movie.Id;
-            Console.WriteLine("MovieIDDDDD :" +_movieId);
             OnNav("detailMovie");
         }
 
